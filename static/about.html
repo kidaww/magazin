@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Постельное</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
+    <link href="onestyle.css" rel="stylesheet">
+    <link href="twostyle.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default back-nav" role="navigation" id="navi">
+	    <div class="container-fluid">
+	    	<div class="navbar-header">
+	    		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			     </button>
+			     <!-- Бренд или название сайта (отображается в левой части меню) -->
+      			<a class="navbar-brand" href="#">Brand</a>
+	    	</div>
+	    	<div class="collapse navbar-collapse" id="navbar-main">
+		      <ul class="nav navbar-nav">
+		        <li class="btn btn-alig"><a style="color: black" v-on:click="all" href="/">Главная</a></li>
+
+
+		        <li class="btn  btn-alig"><a style="color: black" href="#">Доставка и оплата</a></li>
+		        <li class="btn  btn-alig"><a style="color: black" href="#">О нас</a></li>
+
+		      </ul>
+		      <p style="text-align: right;">Viber</p>
+		      <p style="text-align: right;">0991006596</p>
+		    </div>
+	    </div>
+    </nav>
+
+	<div class="col-md-2">
+		<div class="row">
+				<div class="hidden-sm ">
+					<a href="/">
+					    <span class="button">
+					        Вернуться к каталогу
+					    </span>
+					</a>
+				</div>
+		</div>
+	</div>
+		<!--Модальное окно -->
+		<div id="myModal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content" >
+					<div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+					</div>
+					<div class="modal-body">
+						<h2>Оформление заказа</h2>
+							<form action="/add_order" method="POST" id="uploadForm" ref="uploadForm" class="form-horizontal" encType="multipart/form-data">
+								<div class="form-group">
+							    <label class="control-label col-xs-3" for="zakaz">Заказ</label>
+							    <div class="col-xs-9">
+							      <textarea id="zakazik" name="zakaz" readonly></textarea>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-xs-3" for="lastName">ФИО</label>
+							    <div class="col-xs-9">
+							      <input type="text" class="form-control" id="lastName" name="name" placeholder="Петров Петр Петрович">
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+							    <label class="control-label col-xs-3" for="inputEmail">Email:</label>
+							    <div class="col-xs-9">
+							      <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+							    <label class="control-label col-xs-3" for="phoneNumber">Телефон:</label>
+							    <div class="col-xs-9">
+							      <input type="tel" class="form-control" id="phoneNumber" name="phone" placeholder="Введите номер телефона">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-xs-3" for="postalAddress">Адрес:</label>
+							    <div class="col-xs-9">
+							      <textarea rows="3" class="form-control" id="postalAddress" name="adress" placeholder="Введите адрес ближайшего к вам отделения новой почты. Если планируете самовывоз - напишите 'самовывоз'"></textarea>
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-xs-3">Размер постельного</label>
+							    <select id  class="form-control col-xs-9" style="width: 70%;" id="sizeOf" name="type">
+				                  <option>Полуторный</option>
+				                  <option>Двойной</option>
+				                  <option>Евро</option>
+				                  <option>Семья</option>
+				              </select>
+							  </div>
+							  <br />
+							  <div class="form-group">
+							    <div class="col-xs-offset-3 col-xs-9">
+
+							      <button type="submit" id="accept" class="btn btn-primary" >Оставить заявку</button>
+
+							      <input type="reset" class="btn btn-default" value="Очистить форму">
+							    </div>
+							  </div>
+							</form>
+					</div>
+					<div class="modal-footer"><button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button></div>
+					</div>
+				</div>
+			</div>
+
+
+			<!--
+	<div class="col-md-10 col-sm-12 col-xs-12" id="app">
+		 <div class="row">
+		 	<div class="col-md-4 col-sm-6 col-xs-6" v-for="value in catalog">
+		 		<div class="product">
+		 			<img v-bind:src="value.link" class="img-relative center-block">
+		 			<p class="product-title">{{value.name}}</p>
+		 			<p class="product-desc">{{value.dec}}</p>
+		 			<div id="price" class="product-price">Цена : {{ value.price }} грн </div>
+		 			<a type="button"  class="btn btn-success center-block" data-toggle="modal" data-target="#myModal2" style="width: 80%;">Оформить заказ</a>
+		 		</div>
+			 </div>
+		 </div>
+	</div>
+ -->
+	<div class="col-md-10 col-sm-12 col-xs-12" id="app">
+		 <div class="row"  v-for="value in catalog">
+		 	<div class="productss">
+		 		<div class="row text-center">
+		 			<span class="bigletter"> {{value.name}} </span>
+		 		</div>
+		 		<div class="row">
+		 			<div class="col-md-6">
+		 				<img v-bind:src="value.link" class="img product-about-img img-relative" style="margin: 5% 5%; border-radius: 10px;">
+		 			</div>
+		 			<div class="col-md-6">
+		 				<div class="infobox">
+		 					<span class="bigletter"><br><b>Наличе:</b>{{value.nalichie}}</span>
+		 					<span class="bigletter" style="margin: 2px 0;"><br><b>Характеристики:</b></span>
+		 					<ul>
+		 						<li class="middleletter">{{value.dec1}}</li>
+		 						<li class="middleletter">{{value.dec2}}</li>
+		 						<li class="middleletter">{{value.dec3}}</li>
+		 						<li class="middleletter">{{value.dec4}}</li>
+		 					</ul>
+
+		 				</div>
+		 				<div class="infobox">
+							<span class="bigletter"><br><b>Цены:</b></span>
+							<ul>
+		 						<li class="middleletter">Полуторный: {{value.pricepol}} грн.</li>
+		 						<li class="middleletter">Двуспальный: {{value.pricedvu}} грн.</li>
+		 						<li class="middleletter">Евро: {{value.priceeu}} грн.</li>
+		 						<li class="middleletter">Семейный:{{value.pricefam}} грн.</li>
+		 					</ul>
+		 				</div>
+		 				<!--<div class="button" style="width: 35%; margin: 12% 0;">Добавить в корзину</div>
+		 				<div class="button" style="width: 35%; margin: 12% 0;">Купить в 1 клик</div> -->
+		 				<div class="button" v-on:click="zakaz" style="width: 35%; margin: 12% 0;">Оформить заказ</div>
+		 			</div>
+		 		</div>
+							<div class="text-center" style="font-size: 110%;">
+								<p style="text-align:center;"><b>Размеры постельного белья:</b></p> <p><p><b>Комплект полуторный</b>: Пододеяльник 150х215 см; Простынь 145х220 см; Наволочки 50х70 см, 60х60 см или 70х70 см - 2 шт</p>
+								<p><b>Комплект двуспальный</b>: Пододеяльник 180х215 см; Простынь 200х220 см; Наволочки 50х70 см, 60х60 см или 70х70 см - 2 шт.</p>
+								<p><b>Комплект Евро</b>: Пододеяльник 200х218 см; Простынь 220х240 см; Наволочки 50х70 см, 60х60 см или 70х70 см - 2 шт </p>
+								<p><b>Семейный комплект</b>: простыня 220х240 см -1шт, пододеяльник 150х220 см - 2шт, Наволочки 50х70 см, 60х60 см или 70х70 см - 2 шт </p>
+								</p>
+								<p><b>Не устраивают размеры постельного белья? Закажите <a href="/forself" target="_blank">пошив постельного белья на заказ</a> по индивидуальным размерам.</b></p>
+
+								<br />
+
+							</div>
+		 	</div>
+		 </div>
+	</div>
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="http://yoursite.ru/js/jquery.cookie.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    	let catalog;
+    	var app = new Vue({
+            el: '#app',
+            data: {
+                catalog: []
+            },
+            methods: {
+            	zakaz: function() {
+            		$('#myModal').modal('show');
+            		$(document).ready(function() {
+			         	$('#zakazik').text(app.catalog[0].name);
+			         })
+            		//отсюда запрос AJAX
+            	}
+            }
+        })
+        var menu = new Vue({
+        	el: '#menu',
+        	methods: {
+        		filter: function(event) {
+        			if (event) {
+        				app.catalog = catalog.filter(function(v) {
+        					if (v.type === event.target.name) {
+        						return true;
+        					}
+        				})
+        			}
+        		}
+        	}
+        })
+        var navi = new Vue({
+        	el: '#navi',
+        	methods: {
+        		all: function(event) {
+        			if (app.catalog != catalog) {
+        				app.catalog = catalog;
+        			}
+        		}
+        	}
+        })
+         $.getJSON('/info', function(data) {
+            catalog = JSON.parse(data);
+            app.catalog = catalog;
+        })
+         $('#accept').click(function() {
+         	alert('Ваш заказ успешно отправлен. В ближайшее время менеджер свяжется с вами для подтверждения заказа!');
+         })
+
+    </script>
+
+
+
+  </body>
+</html>

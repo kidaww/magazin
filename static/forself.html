@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Постельное</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
+    <link href="onestyle.css" rel="stylesheet">
+    <link href="twostyle.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default back-nav" role="navigation" id="navi">
+	    <div class="container-fluid">
+	    	<div class="navbar-header">
+	    		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			     </button>
+			     <!-- Бренд или название сайта (отображается в левой части меню) -->
+      			<a class="navbar-brand" href="#">Brand</a>
+	    	</div>
+	    	<div class="collapse navbar-collapse" id="navbar-main">
+		      <ul class="nav navbar-nav">
+		        <li class="btn btn-alig"><a style="color: black" v-on:click="all" href="/">Главная</a></li>
+
+
+		        <li class="btn  btn-alig"><a style="color: black" href="#">Доставка и оплата</a></li>
+		        <li class="btn  btn-alig"><a style="color: black" href="#">О нас</a></li>
+		        
+		      </ul>
+		      <p style="text-align: right;">Viber</p>
+		      <p style="text-align: right;">0991006596</p>
+		    </div>
+	    </div>
+    </nav>
+
+	<div class="col-md-2">
+		<div class="row">
+				<div class="hidden-sm ">
+					<a href="/">
+					    <span class="button">
+					        Вернуться к каталогу
+					    </span>
+					</a>
+				</div>
+		</div>
+	</div>
+	<div class="col-md-10 col-sm-12 col-xs-12" id="app">
+		 <div class="row">
+		 	<div class="productss">
+						<h2 style="text-align: center;">Постельное под заказ</h2>
+							<form action="/add_selforder" method="POST" id="uploadForm" ref="uploadForm" class="form-horizontal" encType="multipart/form-data">
+							<div class="form-group">
+							    <label class="control-label col-xs-2" for="zakaz" name="iszakaz">Пододеяльник</label>
+							    <div class="col-xs-9">
+							      <select class="form-control col-xs-9" style="width: 25%;" id="sizeOf" name="pododialnik">
+					                     <option selected>Полуторный 145х215 см;</option>
+									    <option>Двуспальный 180х215 см;</option>
+									    <option>Евро 200х218 см;</option>
+									    <option>Детский 110х145 см;</option>
+									    <option>Другой размер</option>
+
+				              	  </select>
+				              	  <label class="control-label col-xs-2" for="zakaz">Количество</label>
+				              	  <input type="text" class="form-control" style="width: 15%" id="lastName" name="pododialnik_kol" placeholder="1">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-xs-2" for="zakaz">Простынь</label>
+							    <div class="col-xs-9">
+							      <select class="form-control col-xs-9" style="width: 25%;" id="sizeOf" name="prostin">
+					                  <option selected>Полуторная 145х220 см;</option>
+									    <option>Двуспальная 200х220 см;</option>
+									    <option>Евро 200х240 см;</option>
+									    
+									    <option>На резинке 70х140x20</option>
+									    <option>На резинке 140x200х20</option>
+									    <option>На резинке 160x200х20</option>
+									    <option>На резинке 180x200х20</option>
+									    <option>На резинке 200x200х20</option>
+									   
+									    <option>Детская 110х145 см;</option>
+									    <option>Другой размер</option>
+				              	  </select>
+				              	  <label class="control-label col-xs-2" for="zakaz">Количество</label>
+				              	  <input type="text" class="form-control" style="width: 15%" id="lastName" name="prostin_kol" placeholder="1">
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+							    <label class="control-label col-xs-2" for="zakaz">Наволочки</label>
+							    <div class="col-xs-9">
+							      <select class="form-control col-xs-9" style="width: 25%;" id="sizeOf" name="navolochki">
+								    <option selected>40х60</option>
+								    <option>60х60</option>
+								    <option>50х70</option>
+								    <option>70х70</option>
+								    <option>Другой</option>
+				              	  </select>
+				              	  <label class="control-label col-xs-2" for="zakaz">Количество</label>
+				              	  <input type="text" class="form-control" style="width: 15%" id="lastName" name="navolochki_kol" placeholder="1">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <label class="control-label col-xs-2" for="zakaz">Постельное</label>
+							    <div class="col-xs-9">
+							      <select class="form-control col-xs-9" style="width: 25%;" id="sizeOf" name="postel_name" >
+								    <option v-bind:value="value.name" v-for="value in cat">
+								    	{{value.name}}
+								    </option>
+				              	  </select>
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+							    <div class="col-xs-12">
+							      <input  type="text" class="form-control" id="lastName" name="name" placeholder="Фамилия и Имя получателя">
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+							    <div class="col-xs-12">
+							      <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Ваш Email">
+							    </div>
+							  </div>
+
+							  <div class="form-group">
+							    <div class="col-xs-12">
+							      <input type="tel" class="form-control" id="phoneNumber" name="phone" placeholder="Введите Ваш номер телефона">
+							    </div>
+							  </div>
+							  <div class="form-group">
+							    <div class="col-xs-12">
+							      <textarea rows="3" class="form-control" id="postalAddress" name="adress" placeholder="Введите адрес ближайшего к вам отделения новой почты. Если планируете самовывоз - напишите 'самовывоз'"></textarea>
+							    </div>
+							  </div>
+							   <div class="form-group">
+							    <div class="col-xs-12">
+							      <textarea rows="3" class="form-control" id="postalAddress" name="message" placeholder="Сообщение с пожеланиями"></textarea>
+							    </div>
+							  </div>
+							  <br />
+							  <div class="form-group">
+							    <div class="col-xs-offset-3 col-xs-9">
+
+							      <button type="submit" id="accept" class="btn btn-primary" >Оставить заявку</button>
+
+							      <input type="reset" class="btn btn-default" value="Очистить форму">
+							    </div>
+							  </div>
+							</form>
+
+		 	</div>
+		 </div>
+		 <div class="row productss" >
+		 	<h4 class="product-title" style="text-align: center;"><b>Выбор постельного на заказ</b></h4>
+		 	<div class="col-md-3 " v-for="val in cat">
+		 		<h4 class="product-title" style="text-align: center;"><b>{{val.name}}</b></h4>
+				<div class="product-photo img img-relative" style="margin: 5px 0;">
+				 	<img v-bind:src="val.link" style="width: 350px; height: 400px; border-radius: 10px;">
+				 </div>
+				
+			</div>
+		 </div>
+	</div>
+	
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script type="text/javascript">
+		let catalog;
+    	var app = new Vue({
+            el: '#app',
+            data: {
+                catalog: [],
+                cat: []
+            }
+        })
+        $.getJSON('/api', function(data) {
+            catalog = JSON.parse(data).catalog;
+            app.catalog = catalog;
+            app.cat = catalog.filter(function(v) {
+            	if (v.type == "Голд" || v.type == "Беларусь"){
+            		return true;
+            	}
+            })
+        })
+	</script>
+    
+  </body>
+</html>

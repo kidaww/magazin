@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Постельное</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
+    <link href="onestyle.css" rel="stylesheet">
+    <link href="twostyle.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default back-nav" role="navigation" id="navi">
+	    <div class="container-fluid">
+	    	<div class="navbar-header">
+	    		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			     </button>
+			     <!-- Бренд или название сайта (отображается в левой части меню) -->
+      			<a class="navbar-brand" href="#">Brand</a>
+	    	</div>
+	    	<div class="collapse navbar-collapse" id="navbar-main">
+		      <ul class="nav navbar-nav">
+		        <li class="btn btn-alig"><a style="color: black" v-on:click="all" href="/">Главная</a></li>
+
+		        <li class="btn  btn-alig"><a style="color: black" href="/dostavka">Доставка и оплата</a></li>
+		        <li class="btn  btn-alig"><a style="color: black" href="/pronas">О нас</a></li>
+
+		      </ul>
+		      <p style="text-align: right;">Viber</p>
+		      <p style="text-align: right;">0991006596</p>
+		    </div>
+	    </div>
+    </nav>
+
+	<div class="row">
+		<div class="col-md-2 col-xs-12 menu-right" id="menu">
+			<ul class="nav">
+				 <li class="nav-header product-price">Постельное белье</li>
+				 <li class=""><a v-on:click="filter" name="Беларусь" style="cursor: pointer;">Беларусь</a></li>
+				 <li class=""><a v-on:click="filter" name="Голд" style="cursor: pointer;">Голд</a></li>
+				 <li class=""><a  href="/forself">Постельное на заказ</a></li>
+				 <li class="nav-header product-price">Другое</li>
+				 <ul class="nav">
+			            <li class=" "><a v-on:click="filter" name="Подушки" style="cursor: pointer;">Подушки</a></li>
+			            <li class=" "><a v-on:click="filter" name="Одеяла" style="cursor: pointer;">Одеяла</a></li>
+			            <li class=" "><a v-on:click="filter" name="Детское постельное" style="cursor: pointer;">Детское постельное</a></li>
+		          </ul>
+			</ul>
+			<div id="master">
+
+			</div>
+		</div>
+	<div class="col-md-10 col-sm-12 col-xs-12 col-lg-10" id="app">
+		 <div class="text-center">
+		 	<!-- В строчку товары-->
+		 	<div class="flex-block"  v-for="value in catalog">
+		 		<div class="product" style="margin: 0.5% 0.5%;">
+						<div class="product-main">
+							<div class="product-photo">
+								<img v-bind:src="value.link" alt="">
+								<div class="product-preview">
+									<a v-bind:href="'about?id=' + value.id">
+									    <span class="button">
+									        Подробнее
+									    </span>
+									</a>
+								</div>
+							</div>
+							<div class="product-text" style="text-align: left;">
+								<h2 class="produvt-name product-title" style="text-align: center;"><b>{{value.name}}</b></h2>
+								<p style="margin: 1% 0% -10% 0%;">{{value.dec1}}<br>{{value.dec2}}<br>{{value.dec3}}</p>
+							</div>
+							<div class="product-details-wrap">
+								<div class="product-details">
+									<div class="product-availability" style="margin: 5px 0;"></span>{{value.nalichie}}</div>
+									<span class="product-price">
+										<b>{{value.price}}</b>
+										<small>грн.</small>
+									</span>
+								</div>
+								<div class="product-buttons-wrap">
+									<div class="buttons">
+										<span><br>Полуторный: {{value.pricepol}} грн</span>
+										<span><br>Двуспальный: {{value.pricedvu}} грн</span>
+										<span><br>Евро: {{value.priceeu}} грн</span>
+										<span><br>Семья: {{value.pricefam}} грн</span>
+										<!--
+										<span class="button to-cart">В корзину</span>
+										<span class="button">Купить в 1 клик</span> -->
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+		 </div>
+		</div>
+	</div>
+</div>
+	<!--
+	<div class="text-center">
+		<ul class="pagination">
+		  <li><a href="#">Назад</a></li>
+		  <li><a href="#">1</a></li>
+		  <li><a href="#">Вперед</a></li>
+		</ul>
+	</div>
+	<div class="text-center" id="pag">
+		  <ul class="pagination pagination-lg">
+		  	<li class="page-item"  v-for="page in pages">
+		  		<a class="page-link" href="#">
+		  			{{page}}
+		  		</a>
+		  	</li>
+		  </ul>
+	</div>
+	<footer>
+		<div class="footers" style="background: rgba(255,245,215,0.8);">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						Наши контакты:
+						<ul>
+							<li>
+								0991006596
+							</li>
+							<li>
+								0991006597
+							</li>
+							<li>
+								ludmila.bulakh@gmail.com
+							</li>
+							<li>
+								postilson.com.ua
+							</li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						Hello World 1
+					</div>
+					<div class="col-md-4">
+						Hello World 1
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer> -->
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    	let catalog;
+    	var app = new Vue({
+            el: '#app',
+            data: {
+                catalog: []
+
+            },
+            methods: {
+            	podrobnee: function(data) {
+            	}
+            }
+        });
+        var pag = new Vue({
+        	el: '#pag',
+        	data: {
+        		pages: []
+        	}
+        });
+        var menu = new Vue({
+        	el: '#menu',
+        	methods: {
+        		filter: function(event) {
+        			if (event) {
+        				app.catalog = catalog.filter(function(v) {
+        					if (v.type === event.target.name) {
+        						return true;
+        					}
+        				})
+        			}
+        		}
+        	}
+        })
+        var navi = new Vue({
+        	el: '#navi',
+        	methods: {
+        		all: function(event) {
+        			if (app.catalog != catalog) {
+        				app.catalog = catalog;
+        			}
+        		}
+        	}
+        })
+         $.getJSON('/api', function(data) {
+            catalog = JSON.parse(data).catalog;
+            catalog = catalog.reverse();
+            pag.pages = catalog;
+            app.catalog = catalog;
+        })
+
+    </script>
+
+
+
+  </body>
+</html>

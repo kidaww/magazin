@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Авторизация</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
+</head>
+<body>
+	<div class="product">
+        <h2 style="text-align: center;">Вход</h2>
+        <form action="/get_auth" method="POST" id="uploadForm" ref="uploadForm" class="form-horizontal" encType="multipart/form-data">
+
+
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="log">Логин</label>
+            <div class="col-xs-9">
+              <input type="login" class="form-control" name="login" id="log" placeholder="логин">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="pas">Пароль</label>
+            <div class="col-xs-9">
+              <input type="password" class="form-control" id="pas" name="password" placeholder="пароль">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+              <input type="submit" class="btn btn-primary" value="Войти">
+            </div>
+          </div>
+          <div class="form-group">
+            <select class="form-control col-xs-9" style="width: 25%;" id="sizeOf" name="kuda">
+              <option selected>Админка</option>
+              <option>Заказы</option>
+              <option>Заказы под заказ</option>
+            </select>
+          </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

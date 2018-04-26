@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Администратор</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
+</head>
+<body style="background-color: grey;">
+    <header>
+        <nav class="navbar navbar-default back-nav" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                 <!-- Бренд или название сайта (отображается в левой части меню) -->
+                <a class="navbar-brand" href="#">АДМИНИСТРАТОР</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-main">
+              <ul class="nav navbar-nav">
+                <li class="btn btn-alig"><a  href="admin">Товар</a></li>
+                <li class="btn btn-alig"><a  href="/orders">Заказы</a></li>
+                <li class="btn btn-alig"><a  href="#">Личные заказы</a></li>
+                <li class="btn btn-alig"><a href="index.html">Сайт</a></li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+    <div class="col-md-10 col-sm-12 col-xs-12" id="app" >
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-4" v-for="value in selforders">
+                <div class="productss">
+                    <p class="product-title">Заказ: {{value.postel_name}}</p>
+                    <p class="product-desc" style="text-align: left;">Пододеяльник: {{value.pododialnik}}<br><b>Количество:</b>{{value.pododialnik_kol}}</p>
+                    <p class="product-desc" style="text-align: left;">Простынь: {{value.prostin}}<br><b>Количество:</b> {{value.prostin_kol}}</p>
+                    <p class="product-desc" style="text-align: left;">Наволочки: {{value.navolochki}} <br><b>Количество:</b> {{value.navolochki_kol}}</p>
+                    <p class="product-desc" style="text-align: left;"><b>Имя:</b> {{value.name}}</p>
+                    <p class="product-desc" style="text-align: left;">Почта: {{value.email}}</p>
+                    <p class="product-adress" style="text-align: left;">Адресс: {{value.adress}}</p>
+                    <div id="price" class="product-price">Телефон : {{ value.phone }}</div>
+                    <p class="product-adress" style="text-align: left;">Время: {{value.time}}</p>
+                    <form v-bind:action = "'/api/selforders/delete/' + value.id" method = "post" class="text-center">
+                        <input class="btn btn-alig btn-danger" type="submit" name="upvote" value="Удалить" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                selforders: []
+            }
+        });
+         $.getJSON('/api/selforders', function(data) {
+            app.selforders = JSON.parse(data).trashbox;
+        });
+        
+    </script>
+</body>
+</html>

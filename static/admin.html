@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Администратор</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
+        <link href="onestyle.css" rel="stylesheet">
+    <link href="twostyle.css" rel="stylesheet">
+</head>
+<body style="background-color: grey;">
+        <nav class="navbar navbar-default back-nav" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                 <!-- Бренд или название сайта (отображается в левой части меню) -->
+                <a class="navbar-brand" href="#">АДМИНИСТРАТОР</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-main">
+              <ul class="nav navbar-nav">
+                <li class="btn btn-alig"><a  href="#">Товар</a></li>
+                <li class="btn btn-alig"><a  href="/orders">Заказы</a></li>
+                <li class="btn btn-alig"><a  href="/selforders">Личные заказы</a></li>
+                <li class="btn btn-alig"><a href="index.html">Сайт</a></li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="productss">
+        <h2 style="text-align: center;">Добавление позиции</h2>
+        <button class="btn btn-info" data-toggle="collapse" data-target="#uploadForm">Свернуть</button>
+        <form action="/add_img" method="POST" id="uploadForm" ref="uploadForm" class="form-horizontal collapse on" encType="multipart/form-data">
+
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="my-file-selector">Загрузка картинки</label>
+                <label class="btn btn-primary" for="my-file-selector">
+                    <input id="my-file-selector" type="file" name="sampleFile" style="display:none;">
+                    Выбрать файл
+                </label>
+            </div>
+
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="nameGood">Наименование позиции</label>
+            <div class="col-xs-9">
+              <input type="text" class="form-control" name="name" id="nameGood" placeholder="Маки">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="descGood">Описание 1</label>
+            <div class="col-xs-9">
+              <input type="text" class="form-control" id="descGood" name="dec1" placeholder="Ткань: бязь">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="descGood">Описание 2</label>
+            <div class="col-xs-9">
+              <input type="text" class="form-control" id="descGood" name="dec2" placeholder="Состав: Хлопок 100%">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="descGood">Описание 3</label>
+            <div class="col-xs-9">
+              <input type="text" class="form-control" id="descGood" name="dec3" placeholder="Ткань: ТМ Блакит, Беларусь">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="descGood">Описание 4</label>
+            <div class="col-xs-9">
+              <input type="text" class="form-control" id="descGood" name="dec4" placeholder="Плотность: ...">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="priceGood">Цена</label>
+            <div class="col-xs-9">
+              <input type="number" class="form-control" id="priceGood" name="price"  placeholder="500 грн">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="priceGood">Цена полуторное</label>
+            <div class="col-xs-9">
+              <input type="number" class="form-control" id="priceGood" name="pricepol"  placeholder="500 грн">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="priceGood">Цена двуспальное</label>
+            <div class="col-xs-9">
+              <input type="number" class="form-control" id="priceGood" name="pricedvu"  placeholder="500 грн">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="priceGood">Цена евро</label>
+            <div class="col-xs-9">
+              <input type="number" class="form-control" id="priceGood" name="priceeu"  placeholder="500 грн">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="priceGood">Цена семейное</label>
+            <div class="col-xs-9">
+              <input type="number" class="form-control" id="priceGood" name="pricefam"  placeholder="500 грн">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="typeGood">Тип</label>
+            <div class="col-xs-9">
+              <select class="selectpicker" id="typeGood" name="type">
+                  <option>Голд</option>
+                  <option>Беларусь</option>
+                  <option>Детское постельное</option>
+                  <option>Подушки</option>
+                  <option>Одеяла</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-xs-3" for="isGood">Тип</label>
+            <div class="col-xs-9">
+              <select class="selectpicker" id="isGood" name="nalichie">
+                  <option>В наличии</option>
+                  <option>Под заказ</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+
+              <input type="submit" class="btn btn-primary" value="Добавить товар">
+
+              <input type="reset" class="btn btn-default" value="Очистить форму">
+            </div>
+          </div>
+        </form>
+    </div>
+<!--
+    <div class="col-md-10 col-sm-12 col-xs-12" id="app" >
+        <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-4" v-for="value in catalog">
+                <div class="product-little">
+                    <img v-bind:src="value.link" class="img-relative center-block">
+                    <p class="product-title">{{value.name}}</p>
+                    <p class="product-desc">{{value.dec}}</p>
+                    <div id="price" class="product-price">Цена : {{ value.price }} грн</div>
+                    <div id="type" class="product-title">{{value.type}}</div>
+                    <form v-bind:action = "'/api/delete/' + value.id" method = "post" class="text-center">
+                        <input class="btn btn-alig btn-danger" type="submit" name="upvote" value="Удалить" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+        <div class="col-md-10 col-sm-12 col-xs-12" id="app">
+         <div class="row">
+          <!-- В строчку товары-->
+          <div class="col-md-4 col-sm-6 col-xs-6 product-wrapper"  v-for="value in catalog">
+            <div class="product" style="margin: 2% 0;">
+                <div class="product-main">
+                  <div class="product-photo">
+                    <img v-bind:src="value.link" alt="">
+                    <div class="product-preview">
+                      <form v-bind:action = "'/api/delete/' + value.id" method = "post" class="text-center">
+                        <input class="btn btn-alig btn-danger" type="submit" name="upvote" value="Удалить" />
+                    </form>
+                    </div>
+                  </div>
+                  <div class="product-text">
+                    <h2 class="produvt-name product-title" style="text-align: center;">{{value.name}}</h2>
+                    <p style="margin: 1% 0% -10% 0%;">{{value.dec1}} <br> {{value.dec2}}</p>
+                  </div>
+                  <div class="product-details-wrap">            
+                    <div class="product-details">
+                      <div class="product-availability"></span>{{value.nalichie}}</div>
+                      <span class="product-price">
+                        <b>{{ value.price }}</b>
+                        <small>грн.</small>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </div>
+         </div>
+        </div>
+      </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                catalog: []
+            }
+        });
+         $.getJSON('/api', function(data) {
+            app.catalog = JSON.parse(data).catalog;
+        });
+        
+    </script>
+</body>
+</html>
