@@ -1,0 +1,36 @@
+{
+  "name": "magazin",
+  "version": "1.0.0",
+  "description": "papin sait",
+  "main": "site.js",
+  "dependencies": {
+    "basic-auth": "^2.0.0",
+    "emailjs": "^2.0.0",
+    "express-fileupload": "^0.4.0",
+    "express": "^4.16.3",
+    "bootstrap": "^4.1.0",
+    "passport": "^0.4.0",
+    "lightbox2": "^2.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kidaww/magazin.git"
+  },
+  "keywords": [
+    "site",
+    "magazin",
+    "papa",
+    "postel",
+    "node"
+  ],
+  "author": "kidaww",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kidaww/magazin/issues"
+  },
+  "homepage": "https://github.com/kidaww/magazin#readme"
+}
